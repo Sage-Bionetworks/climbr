@@ -27,6 +27,9 @@ To access the API, you need an access token:
 token <- get_climb_token("<username>", "<password>")
 ```
 
+Access tokens are returned as a character string with an attribute containing
+expiration date.
+
 ### Accessing data
 
 Get animals:
@@ -48,4 +51,52 @@ into a tidy frame, us the `tidy_animals()` function.
 ``` r
 r <- get_animals_by_job(token, job = "6655")
 tidy_animals(r)
+```
+
+### Authentication: advanced
+
+Access tokens are good for one day, after which you'll need to generate a new
+one. To avoid having to repeatedly type your password to authenticate, you can
+use the [secret](https://github.com/gaborcsardi/secret) package to store your
+credentials in a vault. Here's an example of how this could run (you'll need to
+supply your own paths, keys, and credentials):
+
+```r
+library("secret")
+
+## Create a vault
+vault <- "/path/to/your/vault.vault"
+create_vault(vault)
+
+## Add yourself as a user to the vault
+my_public_key <- "/path/to/your/ssh/public/key.pub" # e.g. "~/.ssh/id_rsa.pub"
+add_user("your@email.address", my_public_key, vault)
+
+## Save CLIMB login object to your vault
+climb_login <- c(username = "yourusername", password = "yourpassword")
+
+add_secret(
+  "climb_login",
+  climb_login,
+  users = "your@email.address",
+  vault = vault
+)
+```
+
+
+You can retrieve the object with `get_secret()`:
+
+```r
+climb_login <- get_secret(
+  "climb_login",
+  climb_login,
+  users = "your@email.address",
+  vault = vault
+)
+```
+
+And then use it in authentication:
+
+```r
+token <- get_climb_token(climb_login["username"], climb_login["password"])
 ```
