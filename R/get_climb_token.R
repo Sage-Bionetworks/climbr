@@ -1,12 +1,15 @@
 #' Get an access token for the CLIMB API
 #'
 #' @inheritParams climb_auth
-#' @return An access token
+#' @return An access token, with an attribute `expires` that lists the
+#'   expiration date of the token.
 #'
 #' @export
 get_climb_token <- function(username, password) {
   r <- climb_auth(username, password)
-  httr::content(r)$access_token
+  token <- httr::content(r)$access_token
+  attr(token, "expires") <- httr::content(r)$.expires
+  token
 }
 
 #' Authenticate to the CLIMB API
