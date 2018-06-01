@@ -27,6 +27,6 @@ climb_auth <- function(username, password) {
     password = password
   )
   url <- "https://climb-admin.azurewebsites.net/token"
-  r <- httr::POST(url, body = body, encode = "form", httr::verbose())
+  r <- httr::POST(url, body = body, encode = "form")
   r
 }
