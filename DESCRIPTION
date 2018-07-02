@@ -12,11 +12,14 @@ Depends:
 Imports:
     dplyr,
     httr,
+    roomba,
     tibble,
-    urltools
+    urltools,
 Suggests: testthat
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1.9000
+Remotes:  
+    ropenscilabs/roomba

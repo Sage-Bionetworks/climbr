@@ -7,6 +7,7 @@
 #'   `jobNumber` to the resulting data frame.
 #' @return A tidy data frame containing metadata on the animals
 #' @importFrom dplyr %>%
+#' @importFrom roomba replace_null
 #' @export
 #'
 #' @examples
@@ -45,5 +46,6 @@ tidy_animals.response <- function(data, include_params = TRUE) {
 
 
 list_to_animal_df <- function(x) {
+  x <- roomba::replace_null(x) # replace NULLs with NAs so they aren't dropped by unlist
   tibble::as_tibble(as.list(unlist(x)))
 }
