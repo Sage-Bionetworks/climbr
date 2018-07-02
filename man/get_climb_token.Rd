@@ -12,7 +12,8 @@ get_climb_token(username, password)
 \item{password}{CLIMB password}
 }
 \value{
-An access token
+An access token, with an attribute \code{expires} that lists the
+expiration date of the token.
 }
 \description{
 Get an access token for the CLIMB API
