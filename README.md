@@ -89,8 +89,7 @@ You can retrieve the object with `get_secret()`:
 ```r
 climb_login <- get_secret(
   "climb_login",
-  climb_login,
-  users = "your@email.address",
+  key = "~/.ssh/id_rsa", # your private key here
   vault = vault
 )
 ```
