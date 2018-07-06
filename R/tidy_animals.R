@@ -44,6 +44,22 @@ tidy_animals.response <- function(data, include_params = TRUE) {
   tibble::as_tibble(data)
 }
 
+#' Tidy the metadata returned by the Get Animals By Job endpoint
+#'
+#' @inheritParams tidy_animals
+#' @rdname tidy_animals
+#' @export
+tidy_animals_by_job <- function(data, include_params = TRUE) {
+  UseMethod("tidy_animals_by_job")
+}
+
+#' @export
+tidy_animals_by_job.response <- function(data, include_params = TRUE) {
+  tidy_data <- tidy_animals(data)
+  tidy_data <- complete_job_columns(data)
+  tidy_data
+}
+
 #' Ensure that the data retrieved from the CLIMB API has all the necessary
 #' columns
 #'
@@ -66,7 +82,8 @@ tidy_animals.response <- function(data, include_params = TRUE) {
 #'
 complete_job_columns <- function(data) {
   data[, setdiff(pkgenv$animals_by_job_headers, names(data))] <- NA
-  data
+  # Reorder columns to ensure the required ones are first, followed by any extras
+  data[, c(pkgenv$animals_by_job_headers, setdiff(names(data), pkgenv$animals_by_job_headers))]
 }
 
 list_to_animal_df <- function(x) {
@@ -77,14 +94,14 @@ list_to_animal_df <- function(x) {
 # Column names that should be present in Get Animals By Job
 pkgenv <- new.env()
 pkgenv$animals_by_job_headers <- c(
+  "Identifier",
+  "AnimalName",
+  "ExternalIdentifier",
   "CommonName",
   "LineName",
-  "Identifier",
-  "ExternalIdentifier",
   "CurrentLocationPath",
   "AnimalStatus",
   "Sex",
-  "AnimalName",
   "DateBorn",
   "DateExit",
   "PhysicalMarker",
