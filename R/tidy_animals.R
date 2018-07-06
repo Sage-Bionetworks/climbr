@@ -56,7 +56,7 @@ tidy_animals_by_job <- function(data, include_params = TRUE) {
 #' @export
 tidy_animals_by_job.response <- function(data, include_params = TRUE) {
   tidy_data <- tidy_animals(data)
-  tidy_data <- complete_job_columns(data)
+  tidy_data <- complete_job_columns(tidy_data)
   tidy_data
 }
 
