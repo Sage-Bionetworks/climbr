@@ -12,10 +12,10 @@
 #' @examples
 #' \dontrun{
 #' # Insert actual access token
-#' r <- get_animals_by_job("<token>", job = "6655")
+#' r <- get_animals_by_job(job = "6655", "<token>")
 #' content(r)
 #' }
-get_animals_by_job <- function(token, job) {
+get_animals_by_job <- function(job, token) {
   httr::GET(
     url = "https://climb.azure-api.net/animals/copy-5b0f3-of-/get-by-job-number",
     httr::add_headers(Authorization = paste("Bearer", token, sep = " ")),

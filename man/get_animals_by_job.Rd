@@ -4,12 +4,12 @@
 \alias{get_animals_by_job}
 \title{Get Animals by Job}
 \usage{
-get_animals_by_job(token, job)
+get_animals_by_job(job, token)
 }
 \arguments{
-\item{token}{Access token; see \code{\link[=get_climb_token]{get_climb_token()}}}
-
 \item{job}{Job number}
+
+\item{token}{Access token; see \code{\link[=get_climb_token]{get_climb_token()}}}
 }
 \value{
 Response object returned from the API call
@@ -21,7 +21,7 @@ animals.
 \examples{
 \dontrun{
 # Insert actual access token
-r <- get_animals_by_job("<token>", job = "6655")
+r <- get_animals_by_job(job = "6655", "<token>")
 content(r)
 }
 }

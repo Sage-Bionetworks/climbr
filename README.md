@@ -42,14 +42,14 @@ get_animals(token)
 Get animals by job:
 
 ``` r
-get_animals_by_job(token, job = "6655")
+get_animals_by_job(job = "6655", token = token)
 ```
 
 Both of the above functions return a `response` object. To turn this
 into a tidy frame, us the `tidy_animals()` function.
 
 ``` r
-r <- get_animals_by_job(token, job = "6655")
+r <- get_animals_by_job(job = "6655", token = token)
 tidy_animals(r)
 ```
 
