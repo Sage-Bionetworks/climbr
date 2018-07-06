@@ -2,9 +2,12 @@
 % Please edit documentation in R/tidy_animals.R
 \name{tidy_animals}
 \alias{tidy_animals}
+\alias{tidy_animals_by_job}
 \title{Tidy the metadata returned by the API}
 \usage{
 tidy_animals(data, include_params = TRUE)
+
+tidy_animals_by_job(data, include_params = TRUE)
 }
 \arguments{
 \item{data}{The output response object from \code{\link[=get_animals]{get_animals()}} or
@@ -19,6 +22,8 @@ A tidy data frame containing metadata on the animals
 }
 \description{
 Tidy the metadata returned by the API
+
+Tidy the metadata returned by the Get Animals By Job endpoint
 }
 \examples{
 \dontrun{
