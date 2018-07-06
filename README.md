@@ -45,12 +45,16 @@ Get animals by job:
 get_animals_by_job(job = "6655", token = token)
 ```
 
-Both of the above functions return a `response` object. To turn this
-into a tidy frame, us the `tidy_animals()` function.
+Both of the above functions return a `response` object. To turn this into a tidy
+frame, use the `tidy_animals()` or `tidy_animals_by_job()` functions.
+`tidy_animals()` converts the response into a data frame;
+`tidy_animals_by_job()` does a little extra work to ensure the expected fields
+are included (and populated with `NA` if there was no data from these fields in
+the response).
 
 ``` r
 r <- get_animals_by_job(job = "6655", token = token)
-tidy_animals(r)
+tidy_animals_by_job(r)
 ```
 
 ### Authentication: advanced
