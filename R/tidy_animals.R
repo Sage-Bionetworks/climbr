@@ -99,6 +99,7 @@ pkgenv$animals_by_job_headers <- c(
   "ExternalIdentifier",
   "CommonName",
   "LineName",
+  "StockNumber",
   "CurrentLocationPath",
   "MaterialOrigin",
   "Sex",
