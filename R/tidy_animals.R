@@ -60,16 +60,16 @@ tidy_animals_by_job.response <- function(data, include_params = TRUE) {
   tidy_data
 }
 
-#' Ensure that the data retrieved from the CLIMB API has all the necessary
+#' Ensure that the data retrieved from the Climb API has all the necessary
 #' columns
 #'
-#' If fields have no data, they're not returned by the CLIMB API, which can lead
+#' If fields have no data, they're not returned by the Climb API, which can lead
 #' to missing columns if all the animals returned by a query have missing values
 #' in that field. `xomplete_job_columns()` ensures that all columns are present
 #' (and populated with `NA` if there is no data).
 #'
 #' @param data Output of [tidy_animals()]
-#' @return A data frame containing all columns returned by the CLIMB Get Animals
+#' @return A data frame containing all columns returned by the Climb Get Animals
 #'   By Job API
 #' @export
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/tidy_animals.R
 \name{complete_job_columns}
 \alias{complete_job_columns}
-\title{Ensure that the data retrieved from the CLIMB API has all the necessary
+\title{Ensure that the data retrieved from the Climb API has all the necessary
 columns}
 \usage{
 complete_job_columns(data)
@@ -11,11 +11,11 @@ complete_job_columns(data)
 \item{data}{Output of \code{\link[=tidy_animals]{tidy_animals()}}}
 }
 \value{
-A data frame containing all columns returned by the CLIMB Get Animals
+A data frame containing all columns returned by the Climb Get Animals
 By Job API
 }
 \description{
-If fields have no data, they're not returned by the CLIMB API, which can lead
+If fields have no data, they're not returned by the Climb API, which can lead
 to missing columns if all the animals returned by a query have missing values
 in that field. \code{xomplete_job_columns()} ensures that all columns are present
 (and populated with \code{NA} if there is no data).

@@ -1,6 +1,6 @@
 # climbr
 
-Access mouse metadata from the CLIMB API.
+Access mouse metadata from the Climb API.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Access mouse metadata from the CLIMB API.
 devtools::install_github("Sage-Bionetworks/climbr")
 ```
 
-More information about the CLIMB API can be found on the
+More information about the Climb API can be found on the
 [developer portal](https://climb.portal.azure-api.net/) 
 (you'll need to sign up for an account to access documentation on the various
 API endpoints).
@@ -17,8 +17,8 @@ API endpoints).
 
 ### Authentication
 
-First, register for an account with [CLIMB](https://climb.bio/). Note: this is
-different than the CLIMB developer portal. You'll use your CLIMB credentials,
+First, register for an account with [Climb](https://climb.bio/). Note: this is
+different than the Climb developer portal. You'll use your Climb credentials,
 _not_ your developer portal credentials, to access data via the API.
 
 To access the API, you need an access token:
@@ -76,7 +76,7 @@ create_vault(vault)
 my_public_key <- "/path/to/your/ssh/public/key.pub" # e.g. "~/.ssh/id_rsa.pub"
 add_user("your@email.address", my_public_key, vault)
 
-## Save CLIMB login object to your vault
+## Save Climb login object to your vault
 climb_login <- c(username = "yourusername", password = "yourpassword")
 
 add_secret(

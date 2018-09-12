@@ -2,19 +2,19 @@
 % Please edit documentation in R/get_climb_token.R
 \name{get_climb_token}
 \alias{get_climb_token}
-\title{Get an access token for the CLIMB API}
+\title{Get an access token for the Climb API}
 \usage{
 get_climb_token(username, password)
 }
 \arguments{
-\item{username}{CLIMB username}
+\item{username}{Climb username}
 
-\item{password}{CLIMB password}
+\item{password}{Climb password}
 }
 \value{
 An access token, with an attribute \code{expires} that lists the
 expiration date of the token.
 }
 \description{
-Get an access token for the CLIMB API
+Get an access token for the Climb API
 }

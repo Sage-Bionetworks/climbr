@@ -1,4 +1,4 @@
-#' Get an access token for the CLIMB API
+#' Get an access token for the Climb API
 #'
 #' @inheritParams climb_auth
 #' @return An access token, with an attribute `expires` that lists the
@@ -12,10 +12,10 @@ get_climb_token <- function(username, password) {
   token
 }
 
-#' Authenticate to the CLIMB API
+#' Authenticate to the Climb API
 #'
-#' @param username CLIMB username
-#' @param password CLIMB password
+#' @param username Climb username
+#' @param password Climb password
 #' @return POST response object
 #'
 #' @export

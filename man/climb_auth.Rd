@@ -2,18 +2,18 @@
 % Please edit documentation in R/get_climb_token.R
 \name{climb_auth}
 \alias{climb_auth}
-\title{Authenticate to the CLIMB API}
+\title{Authenticate to the Climb API}
 \usage{
 climb_auth(username, password)
 }
 \arguments{
-\item{username}{CLIMB username}
+\item{username}{Climb username}
 
-\item{password}{CLIMB password}
+\item{password}{Climb password}
 }
 \value{
 POST response object
 }
 \description{
-Authenticate to the CLIMB API
+Authenticate to the Climb API
 }
