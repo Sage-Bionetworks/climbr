@@ -17,7 +17,7 @@
 #' }
 get_animals_by_job <- function(job, token) {
   httr::GET(
-    url = "https://climb.azure-api.net/animals/copy-5b0f3-of-/get-by-job-number",
+    url = "https://climb.azure-api.net/animals/get-by-job-number",
     httr::add_headers(Authorization = paste("Bearer", token, sep = " ")),
     query = list(jobNumber = job)
   )

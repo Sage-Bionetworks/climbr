@@ -14,7 +14,7 @@
 #' }
 get_animals <- function(token) {
   httr::GET(
-    url = "https://climb.azure-api.net/animals/copy-5af9d-of-/get",
+    url = "https://climb.azure-api.net/animals/all",
     httr::add_headers(Authorization = paste("Bearer", token, sep = " "))
   )
 }
