@@ -1,5 +1,7 @@
 # climbr
 
+[![Travis build status](https://travis-ci.org/Sage-Bionetworks/climbr.svg?branch=master)](https://travis-ci.org/Sage-Bionetworks/climbr)
+
 Access mouse metadata from the Climb API.
 
 ## Installation
