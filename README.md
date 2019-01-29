@@ -109,7 +109,11 @@ token <- get_climb_token(climb_login["username"], climb_login["password"])
 If you belong to multiple Climb workgroups, when you generate a token your API
 requests will be directed to whichever workgroup you most recently logged into
 on the web. Therefore if workgroup `A` has a job `my_job`, but you most recently
-logged in to workgroup `B`, then `get_animals_by_job(job = "my_job", token = token)`
+logged in to workgroup `B`, then `get_animals_by_job(job = "my_job", token = token)**
 will not return any data. To get around this, either log in to the appropriate
 workgroup before making a request, or create separate accounts for each
 workgroup you want to access.
+
+---
+
+Please note that the `climbr` project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
