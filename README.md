@@ -47,17 +47,23 @@ Get animals by job:
 get_animals_by_job(job = "6655", token = token)
 ```
 
-Both of the above functions return a `response` object. To turn this into a tidy
-frame, use the `tidy_animals()` or `tidy_animals_by_job()` functions.
-`tidy_animals()` converts the response into a data frame;
-`tidy_animals_by_job()` does a little extra work to ensure the expected fields
-are included (and populated with `NA` if there was no data from these fields in
-the response).
+Get animals by cohort:
+
+```r
+get_animals_by_cohort(cohort = "5xFAD 6mo Tissue", token)
+```
+
+The above functions return a `response` object. To turn this into a data frame,
+use the `make_animals_df()` function.
 
 ``` r
 r <- get_animals_by_job(job = "6655", token = token)
-tidy_animals_by_job(r)
+make_animals_df(r)
 ```
+
+`tidy_animals_by_job()` does a little extra work to ensure some expected fields
+in the `get_animals_by_job()` response are included (and populated with `NA` if
+there was no data from these fields in the response).
 
 ### Authentication: advanced
 
