@@ -8,7 +8,7 @@ columns}
 complete_job_columns(data)
 }
 \arguments{
-\item{data}{Output of \code{\link[=tidy_animals]{tidy_animals()}}}
+\item{data}{Output of \code{\link[=make_animals_df]{make_animals_df()}}}
 }
 \value{
 A data frame containing all columns returned by the Climb Get Animals
@@ -17,13 +17,13 @@ By Job API
 \description{
 If fields have no data, they're not returned by the Climb API, which can lead
 to missing columns if all the animals returned by a query have missing values
-in that field. \code{xomplete_job_columns()} ensures that all columns are present
-(and populated with \code{NA} if there is no data).
+in that field. \code{complete_job_columns()} ensures that all expected columns are
+present (and populated with \code{NA} if there is no data).
 }
 \examples{
 \dontrun{
 r <- get_animals()
-dat <- tidy_animals(r)
+dat <- make_animals_df(r)
 complete_job_columns(dat)
 }
 
