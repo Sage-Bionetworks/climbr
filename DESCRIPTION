@@ -15,11 +15,15 @@ Imports:
     roomba,
     tibble,
     urltools,
-Suggests: testthat
+Suggests:
+    jsonlite,
+    testthat,
+    webmockr (>= 0.3.0.9314)
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Remotes: 
-    ropenscilabs/roomba
+    ropenscilabs/roomba,
+    ropensci/webmockr
