@@ -1,7 +1,7 @@
 Package: climbr
 Version: 0.0.0.9000
-Title: Access Mouse Metadata from the CLIMB API
-Description: Query the CLIMB API to acquire metadata on mouse models.
+Title: Access Mouse Metadata from the Climb API
+Description: Query the Climb API to acquire metadata on mouse models.
 Authors@R: c(
     person("Kara", "Woo", email = "kara.woo@sagebase.org", role = c("aut", "cre")),
     person("Sage Bionetworks", role = c("cph"))
