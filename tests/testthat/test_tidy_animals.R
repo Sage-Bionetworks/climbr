@@ -31,33 +31,66 @@ dat <- list(
 
 dat_json <- jsonlite::toJSON(dat, auto_unbox = TRUE)
 
-## test_that("make_animals_df creates a data frame from response", {
+test_that("make_animals_df creates a data frame from response", {
 
-##   webmockr::httr_mock(on = TRUE)
+  webmockr::httr_mock(on = TRUE)
 
-##   stub <- webmockr::stub_request(
-##     "get",
-##     "https://climb.azure-api.net/animals/get-by-job-number?jobNumber=whatever"
-##   ) %>%
-##     webmockr::wi_th(
-##       headers = list(
-##         "Accept" = "application/json, text/xml, application/xml, */*",
-##         "Authorization" = "Bearer fake_token"
-##       )
-##     ) %>%
-##   webmockr::to_return(
-##     body = dat_json,
-##     status = 200,
-##     headers = list('Content-Type' = 'application/json; charset=utf-8')
-##   )
-##   ## Job and token don't matter because this is being mocked
-##   r <- get_animals_by_job(job = "whatever", token = "fake_token")
+  stub <- webmockr::stub_request(
+    "get",
+    "https://climb.azure-api.net/animals/get-by-job-number?jobNumber=whatever"
+  ) %>%
+    webmockr::wi_th(
+      headers = list(
+        "Accept" = "application/json, text/xml, application/xml, */*",
+        "Authorization" = "Bearer fake_token"
+      )
+    ) %>%
+  webmockr::to_return(
+    body = dat_json,
+    status = 200,
+    headers = list('Content-Type' = 'application/json; charset=utf-8')
+  )
+  ## Job and token don't matter because this is being mocked
+  r <- get_animals_by_job(job = "whatever", token = "fake_token")
 
-##   animals <- make_animals_df(r)
-##   webmockr::httr_mock(on = FALSE)
+  animals <- make_animals_df(r, include_params = FALSE)
+  webmockr::httr_mock(on = FALSE)
 
-##   expect_true(is.data.frame(animals))
-## })
+  expect_true(is.data.frame(animals))
+  expect_equal(
+    names(animals),
+    c("AnimalStatus", "MatingID", "BirthID", "AnimalName", "Comments")
+  )
+})
+
+test_that("make_animals_df's include_params option adds query params to data frame", {
+  webmockr::httr_mock(on = TRUE)
+
+  stub <- webmockr::stub_request(
+    "get",
+    "https://climb.azure-api.net/animals/get-by-job-number?jobNumber=whatever"
+  ) %>%
+    webmockr::wi_th(
+      headers = list(
+        "Accept" = "application/json, text/xml, application/xml, */*",
+        "Authorization" = "Bearer fake_token"
+      )
+    ) %>%
+  webmockr::to_return(
+    body = dat_json,
+    status = 200,
+    headers = list('Content-Type' = 'application/json; charset=utf-8')
+  )
+  ## Job and token don't matter because this is being mocked
+  r <- get_animals_by_job(job = "whatever", token = "fake_token")
+
+  animals <- make_animals_df(r, include_params = TRUE)
+  webmockr::httr_mock(on = FALSE)
+
+  expect_true("jobNumber" %in% names(animals))
+  expect_true(all(animals$jobNumber == "whatever"))
+
+})
 
 test_that("list_to_animal_df converts to tibble without losing columns", {
   dat_tbl <- list_to_animal_df(dat[["value"]][[1]])
