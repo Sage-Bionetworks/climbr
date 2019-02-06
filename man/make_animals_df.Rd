@@ -26,6 +26,9 @@ result should be relatively tidy if each animal has only one value for every
 field, but there will be duplicated columns if animals have multiple values
 for a given field. For example, if an animal is in multiple cohorts, there
 will be multiple \code{cohortName} columns
+
+Does a little extra work beyond \code{make_animals_df()} to ensure that some
+expected columns are present.
 }
 \examples{
 \dontrun{
