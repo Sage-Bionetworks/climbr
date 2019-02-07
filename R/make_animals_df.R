@@ -60,7 +60,7 @@ make_animals_df.response <- function(data, include_params = TRUE) {
 #' @rdname make_animals_df
 #' @export
 tidy_animals_by_job <- function(data, include_params = TRUE) {
-  UseMethod("make_animals_df_by_job")
+  UseMethod("tidy_animals_by_job")
 }
 
 #' @export
