@@ -1,6 +1,9 @@
 # climbr
 
+ <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/Sage-Bionetworks/climbr.svg?branch=master)](https://travis-ci.org/Sage-Bionetworks/climbr)
+[![Lifecycle: dormant](https://img.shields.io/badge/lifecycle-dormant-blue.svg)](https://www.tidyverse.org/lifecycle/#dormant)
+<!-- badges: end -->
 
 Access mouse metadata from the Climb API.
 
